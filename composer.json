@@ -1,0 +1,25 @@
+{
+    "name": "houseofagile/fuzzy-guide",
+    "description": "A Symfony bundle to copy usefull scripts to the project root, to help with deployment, typically with docker.",
+    "type": "library",
+    "require": {
+        "composer-plugin-api": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HouseOfAgile\\FuzzyGuide\\": "src/"
+        }
+    },
+    "extra": {
+        "symfony-root-dir": ".",
+        "script-target-dir": "scripts"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "HouseOfAgile\\FuzzyGuide\\Composer\\ScriptHandler::copyScripts"
+        ],
+        "post-update-cmd": [
+            "HouseOfAgile\\FuzzyGuide\\Composer\\ScriptHandler::copyScripts"
+        ]
+    }
+}
